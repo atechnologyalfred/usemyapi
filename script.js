@@ -4,7 +4,7 @@ const span = document.querySelector("span");
 const fetchApi = async () => {
   span.style.display = 'block';
   try {
-    const res = await fetch("https://fetchapi-o5nd.onrender.com/");
+    const res = await fetch("https://fetchapi-o5nd.onrender.com");
     const data = await res.json();
     console.log
     data.forEach((data) => {
@@ -19,7 +19,7 @@ const fetchApi = async () => {
                 <p>${data.tech} at ${data.age}</p>
                 <div style="background-color: #fff; box-shadow: 1px 1px 1px rgba(0,0,0,0.1); 
                 padding: 2rem 4rem; display: flex; gap: 4px;">
-                ${data.movement.map(mov=>` <span>${mov}</span>`      
+                ${data.technologies.map(mov=>` <span>${mov}</span>`      
                 )}
                 </div>
     </button>
