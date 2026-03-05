@@ -6,6 +6,7 @@ const fetchApi = async () => {
   try {
     const res = await fetch("https://fetchapi-o5nd.onrender.com/");
     const data = await res.json();
+    console.log
     data.forEach((data) => {
       const content = `
     <button 
@@ -15,7 +16,12 @@ const fetchApi = async () => {
             border-radius: 1rem; cursor: pointer;" data-id=${data.id}>
 
                 <h2>${data.name} (${data.gender})</h2>
-                <p>${data.tech}</p>
+                <p>${data.tech} at ${data.age}</p>
+                <div style="background-color: #fff; box-shadow: 1px 1px 1px rgba(0,0,0,0.1); 
+                padding: 2rem 4rem; display: flex; gap: 4px;">
+                ${data.movement.map(mov=>` <span>${mov}</span>`      
+                )}
+                </div>
     </button>
             `;
       main.innerHTML += content;
